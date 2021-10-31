@@ -1,6 +1,7 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { queryClient } from '../index';
 import { Card } from '../types';
-import differentCards from '../utils/CardList';
+import useGameContext from './useGameContext';
 
 const shuffleArray = (array: Card[]) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -10,9 +11,25 @@ const shuffleArray = (array: Card[]) => {
     return array;
 }
 
-const createInitialCards = () => {
+const getRandomCards = (num: number, cards: Card[]) => {
+    let result = [];
+    let addedIndex: number[] = [];
+    for (let i = 0; i < num; i++) {
+        let randomIndex = Math.trunc(Math.random() * 100);
+        if (!addedIndex.includes(randomIndex)) {
+            result.push(cards[randomIndex]);
+            addedIndex.push(randomIndex);
+        } else {
+            i--;
+        }
+    };
+    return result;
+}
+
+const createInitialCards = (data: Card[]) => {
     let initialCards: Card[] = [];
-    differentCards.forEach(({ name, src }) => {
+    let randomCards = getRandomCards(8, data);
+    randomCards?.forEach(({ name, src }) => {
         initialCards.push({ name, src, id: `${name}-1` });
         initialCards.push({ name, src, id: `${name}-2` });
     });
@@ -20,12 +37,19 @@ const createInitialCards = () => {
 }
 
 const useBoard = () => {
-    const [cards, setCards] = useState(createInitialCards);
+    const { game } = useGameContext();
+    const data: Card[] = queryClient.getQueryData(game)!;
+    const [cards, setCards] = useState<Card[]>([]);
     const [flipped, setFlipped] = useState<string[]>([]);
     const [wonPairs, setWonPairs] = useState<string[]>([]);
     const [startTimer, setStartTimer] = useState(false);
     const timeoutRef = useRef<NodeJS.Timeout>();
     const gameEnded = wonPairs.length === cards.length / 2;
+    const isLoading = cards.length === 0;
+
+    useEffect(() => {
+        data && setCards(createInitialCards(data));
+    }, [data])
 
     const onClickCard = (key: string) => {
         if (!startTimer) {
@@ -54,13 +78,13 @@ const useBoard = () => {
     };
 
     const onRestart = () => {
-        setCards(createInitialCards);
+        setCards(createInitialCards(data));
         setWonPairs([]);
         setFlipped([]);
         setStartTimer(false);
     };
 
-    return { cards, flipped, onClickCard, onRestart, wonPairs, gameEnded, startTimer };
+    return { cards, flipped, onClickCard, onRestart, wonPairs, gameEnded, startTimer, isLoading };
 }
 
 export default useBoard;
