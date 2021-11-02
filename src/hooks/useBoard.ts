@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
-import { queryClient } from '../index';
 import { Card } from '../types';
 import useGameContext from './useGameContext';
+import { useQueryClient } from 'react-query';
 
 const shuffleArray = (array: Card[]) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -37,6 +37,7 @@ const createInitialCards = (data: Card[]) => {
 }
 
 const useBoard = () => {
+    const queryClient = useQueryClient();
     const { game } = useGameContext();
     const data: Card[] = queryClient.getQueryData(game)!;
     const [cards, setCards] = useState<Card[]>([]);
