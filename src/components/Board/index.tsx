@@ -1,10 +1,16 @@
 import { FC } from "react";
 import useBoard from "../../hooks/useBoard";
+import useGameContext from "../../hooks/useGameContext";
 import Card from "../Card";
+import Timer from "../Timer";
 import { StyledBoard } from "./styles";
 
 const Board: FC = () => {
-    const { cards, flipped, onClickCard, wonPairs, onRestart, gameEnded, startTimer } = useBoard();
+    const { cards, flipped, onClickCard, wonPairs, onRestart, gameEnded, startTimer, isLoading } = useBoard();
+    const { setGame } = useGameContext();
+    if (isLoading) {
+        return <div>CARGANDO</div>
+    }
     return (
         <>
             {
@@ -22,9 +28,13 @@ const Board: FC = () => {
                                 )
                             })
                         }
-                        <button onClick={onRestart}>restart</button>
+                        <button onClick={onRestart}>reiniciar</button>
+                        <button onClick={() => setGame('')}>volver</button>
+
                     </StyledBoard>
             }
+            <Timer startTimer={startTimer} gameEnded={gameEnded} />
+
         </>
     )
 }
