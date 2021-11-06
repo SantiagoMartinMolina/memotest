@@ -1,7 +1,7 @@
 import { FC } from "react";
 import useGameContext from "../../hooks/useGameContext";
-import PokemonTitle from '../../images/pokemonTitle.svg';
-import RickAndMortyTitle from '../../images/RickAndMortyTitle.png';
+import pokemonPortada from '../../images/pokemonPortada.png';
+import rickAndMortyPortada from '../../images/rickAndMortyPortada.jpg';
 import { StyledThemeCard } from "./styles";
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 
 const ThemeCard: FC<Props> = ({ game }) => {
     const { setGame } = useGameContext();
-    const src = game === 'pokemon' ? PokemonTitle : RickAndMortyTitle;
+    const src = game === 'pokemon' ? pokemonPortada : rickAndMortyPortada;
     const alt = game === 'pokemon' ? 'pokemon' : 'rick and morty';
     return (
         <StyledThemeCard>
