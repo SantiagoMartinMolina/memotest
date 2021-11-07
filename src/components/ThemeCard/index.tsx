@@ -1,12 +1,10 @@
-import { FC } from "react";
-import useGameContext from "../../hooks/useGameContext";
-import pokemonPortada from '../../images/pokemonPortada.png';
-import pokemonPortada2 from '../../images/pokemonPortada2.jpg';
-import rickAndMortyPortada2 from '../../images/rickAndMortyPortada2.jpg';
-
-
-import rickAndMortyPortada from '../../images/rickAndMortyPortada.jpg';
-import { StyledThemeCard } from "./styles";
+import { FC } from 'react';
+import useGameContext from '../../hooks/useGameContext';
+import pokemonPortada from '../../assets/images/pokemonPortada.png';
+import pokemonPortada2 from '../../assets/images//pokemonPortada2.jpg';
+import rickAndMortyPortada2 from '../../assets/images/rickAndMortyPortada2.jpg';
+import rickAndMortyPortada from '../../assets/images/rickAndMortyPortada.jpg';
+import { StyledThemeCard } from './styles';
 
 interface Props {
     game: string
@@ -23,7 +21,9 @@ const ThemeCard: FC<Props> = ({ game }) => {
                 <source srcSet={src2} media="(max-width: 800px)" />
                 <img src={src} alt={alt} />
             </picture>
-            <button onClick={() => setGame(game)} />
+            <button onClick={() => setGame(game)}>
+                <span>Play</span>
+            </button>
         </StyledThemeCard>
     )
 }

@@ -1,8 +1,7 @@
 import { FC } from 'react';
 import { Card as ICard } from '../../types';
-import pokeball from '../../images/Pokeball.png';
-import rickAndMorty from '../../images/RickAndMorty.png';
-
+import pokeball from '../../assets/images/Pokeball.png';
+import rickAndMorty from '../../assets/images/RickAndMorty.png';
 import { StyledCard } from './styles';
 import useGameContext from '../../hooks/useGameContext';
 

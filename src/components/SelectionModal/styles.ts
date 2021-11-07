@@ -8,6 +8,7 @@ export const StyledSelectionModal = styled.div`
     max-width: 1000px;
     width: 90%;
     overflow: hidden;
+    position: relative;
 
     .content{
        padding: 1.5em;
@@ -32,8 +33,20 @@ export const StyledSelectionModal = styled.div`
 
        img{
            align-self: flex-end;
-           width: 80%;
+           /* width: 80%; */
+           max-height: calc(150px + 15vw);
            margin: auto 0;
+           cursor: pointer;
+           transition: filter 200ms ease;
+           user-select: none;
+
+           &:active{
+               transform: translateY(10px);
+               mix-blend-mode: overlay;
+            }
+            &:hover{
+                filter: drop-shadow(0 0 30px white) drop-shadow(0 0 30px white) ;
+           }
        }
 
        .links{
@@ -90,7 +103,20 @@ export const StyledSelectionModal = styled.div`
         .img-container{
             clip-path: none;
             img{
-                display: none;
+                /* display: none; */
+                max-height: 50px;
+                position: absolute;
+                top: 1.5em;
+                right: 1.5em;
+
+                &:hover{
+                    filter: none;
+                }
+                
+                &:active{
+                    transform: translateY(5px);
+                    mix-blend-mode: normal;
+                }
             }
         }
 

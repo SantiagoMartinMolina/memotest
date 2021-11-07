@@ -1,8 +1,9 @@
 import { StyledSelectionModal } from './styles';
-import Charmander from '../../images/charmander.png';
-import ThemeCard from "../ThemeCard";
+import ThemeCard from '../ThemeCard';
+import PokemonEvolutionImg from '../PokemonEvolutionImg/index';
 
 const SelectionModal = () => {
+
     return (
         <StyledSelectionModal>
             <div className='content'>
@@ -14,7 +15,7 @@ const SelectionModal = () => {
                 </div>
             </div>
             <div className='img-container'>
-                <img src={Charmander} alt="charmander" />
+                <PokemonEvolutionImg />
                 <footer>
                     <p>Santiago Molina - 2021</p>
 

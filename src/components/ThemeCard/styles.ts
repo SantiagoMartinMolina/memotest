@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
 export const StyledThemeCard = styled.div`
-    /* width: 200px; */
-    background-color: #ffc5bc;
-    /* padding: 1em; */
     border-radius: 10px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    transition: filter 200ms ease, transform 200ms ease;
+
     img, picture{
         width: 100%;
         height: 100%;
@@ -21,8 +20,36 @@ export const StyledThemeCard = styled.div`
         left: 0;
         width: 100%;
         height: 100%;
-        opacity: 0;
+        border: none;
+        background-color: transparent;
         cursor: pointer;
+        font-family: inherit;
+
+        span{
+            display: inline-block;
+            padding: 1em 2em;
+            background-color: aquamarine;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1em;
+            transform: translate(-50%, 250px);
+            transition: transform 200ms ease;
+            position: absolute;
+            bottom: 25px;
+        }
+
+        &:hover{
+            span{
+                transform: translate(-50%, 0);
+            }
+        }
+    }
+
+    &:hover{
+        img{
+            /* filter: blur(2px); */
+        }
+        transform: rotate(3deg);
     }
 
     @media (max-width: 800px){
