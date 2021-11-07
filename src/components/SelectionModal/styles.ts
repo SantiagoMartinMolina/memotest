@@ -16,16 +16,8 @@ export const StyledSelectionModal = styled.div`
        flex-direction: column;
 
        p{
-           margin-top: auto;
            margin-bottom: 1em;
            font-size: clamp(0.75rem, 2vw, 1.5rem);
-
-       }
-
-       span{
-           margin-top: 1em;
-           text-align: center;
-           font-size: 1em;
        }
     }
 
@@ -48,8 +40,8 @@ export const StyledSelectionModal = styled.div`
             display: flex;
             list-style: none;
             justify-content: flex-end;  
+            flex: 1;
             align-items: center;
-            margin-top: 1em;
 
             a{
                 margin-left: 1em;
@@ -74,32 +66,63 @@ export const StyledSelectionModal = styled.div`
         font-family: 'Irish Grover', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-        font-size: clamp(1rem, 5vw, 7rem);
+        font-size: clamp(1.5rem, 5vw, 7rem);
         color: var(--title-color);
-        letter-spacing: 4px;
+        letter-spacing: 0.1em;
     }
 
-	@media (max-width: 550px) {
+    footer{
+        display: flex;
+        align-items: center;
 
+        p{
+           font-size: 1em;
+       }
+    }
+
+	@media (max-width: 800px) {
+        flex-direction: column; 
+        
         .content, .img-container{
-            padding: 1em;
+            width: 100%;
         }
 
-        .content{
-            span{
-                font-size: 0.5em;
+        .img-container{
+            clip-path: none;
+            img{
+                display: none;
+            }
+        }
+
+        .card-container{
+            gap: 1em;
+        }
+    }
+
+	@media (max-width: 500px) {
+        .card-container{
+            grid-template-columns: 1fr;
+        }
+    }
+
+	@media (max-width: 400px) {
+        footer{
+            p{
+                font-size: 0.8em;
             }
         }
 
         .img-container{
             .links{
                 a{
-                    font-size: 0.7em;
+                    i{
+                        font-size: 1.2em;
+                    }
                 }
             }
         }
-
     }
+
 
     
 `

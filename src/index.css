@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+#root{
+  width: 100%;
+}
+
 :root{
   --title-color: #a70090;
   --bg-color-100: rgba(255,210,153,1);
@@ -20,7 +24,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(180deg, var(--bg-color-200) 0%, var(--bg-color-100) 100%);
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledThemeCard = styled.div`
     /* width: 200px; */
-    /* background-color: #ffc5bc; */
+    background-color: #ffc5bc;
     /* padding: 1em; */
     border-radius: 10px;
     position: relative;
@@ -10,9 +10,10 @@ export const StyledThemeCard = styled.div`
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    img{
+    img, picture{
         width: 100%;
         height: 100%;
+        object-fit: cover;  
     }
     button{
         position: absolute;
@@ -22,5 +23,17 @@ export const StyledThemeCard = styled.div`
         height: 100%;
         opacity: 0;
         cursor: pointer;
+    }
+
+    @media (max-width: 800px){
+        img, picture{
+            max-height: 300px;
+        }
+    }
+    @media (max-width: 500px){
+        img, picture{
+            max-height: 170px;
+            object-position: top;
+        }
     }
 `
