@@ -4,12 +4,13 @@ import Charizard from '../../assets/images/charizard.png';
 import { useState } from 'react';
 import useSound from 'use-sound';
 import buttonSound from '../../assets/sounds/buttonSound.mp3';
+import useSoundContext from '../../hooks/useSoundContext';
 
 
 const PokemonEvolutionImg = () => {
     const [src, setSrc] = useState(Charmander);
-    const [play] = useSound(buttonSound);
-
+    const { soundActive } = useSoundContext();
+    const [play] = useSound(buttonSound, { soundEnabled: soundActive });
     const handleClick = (e: React.MouseEvent<HTMLImageElement>) => {
 
         play();
