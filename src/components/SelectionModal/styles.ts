@@ -31,6 +31,25 @@ export const StyledSelectionModal = styled.div`
        justify-content: space-between;
        padding: 1.5em;
 
+       button{
+           background-color: transparent;
+           border: none;
+           width: fit-content;
+           align-self: flex-end;
+        margin-bottom: 1em;
+           .fas{
+               color: #fff;
+               cursor: pointer;
+               align-self: flex-end;
+            }
+            &:hover{
+                .fas{
+                    color: var(--primary);
+                }
+            }
+       }
+
+
        img{
            align-self: flex-end;
            /* width: 80%; */
@@ -64,8 +83,13 @@ export const StyledSelectionModal = styled.div`
                 font-size: 1.2em;
                 i{
                     font-size: 1.4em;
-                }               
+                }  
+                
+                &:hover{
+                    color: var(--primary);
+                }
             }
+            
        }
    }
 
@@ -80,7 +104,7 @@ export const StyledSelectionModal = styled.div`
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
         font-size: clamp(1.5rem, 5vw, 7rem);
-        color: var(--title-color);
+        color: var(--primary);
         letter-spacing: 0.1em;
     }
 
