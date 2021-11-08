@@ -1,6 +1,7 @@
 import { StyledSelectionModal } from './styles';
 import ThemeCard from '../ThemeCard';
 import PokemonEvolutionImg from '../PokemonEvolutionImg/index';
+import SoundButton from '../SoundButton';
 
 const SelectionModal = () => {
 
@@ -15,6 +16,7 @@ const SelectionModal = () => {
                 </div>
             </div>
             <div className='img-container'>
+                <SoundButton />
                 <PokemonEvolutionImg />
                 <footer>
                     <p>Santiago Molina - 2021</p>
