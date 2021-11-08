@@ -27,15 +27,16 @@ export const StyledThemeCard = styled.div`
 
         span{
             display: inline-block;
-            padding: 1em 2em;
-            background-color: aquamarine;
+            padding: 0.7rem 1.4rem;
+            background-color: var(--primary);
             border-radius: 10px;
             font-weight: bold;
-            font-size: 1em;
+            font-size: 1.3em;
             transform: translate(-50%, 250px);
             transition: transform 200ms ease;
             position: absolute;
             bottom: 25px;
+            color: #fff
         }
 
         &:hover{
