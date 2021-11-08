@@ -10,7 +10,7 @@
 }
 
 :root{
-  --title-color: #a70090;
+  --primary: #a70090;
   --bg-color-100: rgba(255,210,153,1);
   --bg-color-200: rgba(254,150,79,1);
   }
