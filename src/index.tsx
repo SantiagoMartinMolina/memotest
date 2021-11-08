@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { GameProvider } from './Context';
+import { GameProvider, SoundProvider } from './Context';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,11 +19,13 @@ const queryClient = new QueryClient({
 
 ReactDOM.render(
   <React.StrictMode>
-    <GameProvider>
-      <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
-    </GameProvider>
+    <SoundProvider>
+      <GameProvider>
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
+      </GameProvider>
+    </SoundProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
