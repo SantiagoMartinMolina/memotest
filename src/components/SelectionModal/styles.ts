@@ -131,7 +131,7 @@ export const StyledSelectionModal = styled.div`
                 max-height: 50px;
                 position: absolute;
                 top: 1.5em;
-                right: 1.5em;
+                right: 3.5em;
 
                 &:hover{
                     filter: none;
@@ -147,6 +147,19 @@ export const StyledSelectionModal = styled.div`
         .card-container{
             gap: 1em;
         }
+
+        .img-container{
+            button{
+                .fas{
+                    position: absolute;
+                    top: 3em;
+                    right: 1.5em;
+                    color: #aaa;
+                    font-size: 1.1em;
+                }
+            }
+        }
+
     }
 
 	@media (max-width: 500px) {
