@@ -16,10 +16,10 @@ const Card: FC<Props> = ({ src, name, flipped, onClick, id }) => {
         <StyledCard onClick={() => onClick(id!)}>
             <div className={`card-inner ${flipped && 'card-flipped'}`}>
                 <div className="card-front">
-                    <img src={game === 'pokemon' ? pokeball : rickAndMorty} alt={name} />
+                    <img src={game === 'pokemon' ? pokeball : rickAndMorty} alt='card' />
                 </div>
                 <div className="card-back">
-                    <img src={src} alt={name} />
+                    <img src={src} className={game === 'rickAndMorty' ? 'rick-img' : undefined} alt='card' />
                 </div>
             </div>
         </StyledCard>

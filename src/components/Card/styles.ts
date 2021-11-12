@@ -5,13 +5,24 @@ export const StyledCard = styled.div`
     height: 100px;
     transition: transform 200ms ease;
 
+    @media (max-width: 500px){
+        width: 60px;
+        height: 60px;
+    }
+
     img{
         width: 100%;
+        height: 100%;
         -webkit-user-drag: none;
         user-select: none;
         -moz-user-select: none;
         -webkit-user-select: none;
         -ms-user-select: none;
+        
+        &.rick-img{
+            border-radius: 50%;
+
+        }
     }
 
     &:hover{
