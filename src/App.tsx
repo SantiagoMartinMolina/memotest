@@ -3,6 +3,7 @@ import { Suspense, lazy } from 'react';
 import SelectionModal from './components/SelectionModal';
 import useGameContext from './hooks/useGameContext';
 import useRequests from './hooks/useRequests';
+import SoundButton from './components/SoundButton';
 
 const Board = lazy(() => import(/* webpackPrefetch: true */ './components/Board'));
 
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <div className="App">
+      <SoundButton />
       {
         !game
           ?

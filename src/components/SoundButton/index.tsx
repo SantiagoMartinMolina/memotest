@@ -1,21 +1,20 @@
 import React from 'react'
 import useSoundContext from '../../hooks/useSoundContext';
+import { StyledSoundButton } from './StyledSoundButton';
 
 const SoundButton = () => {
     const { soundActive, setSoundActive } = useSoundContext();
 
     return (
-        <button onClick={() => setSoundActive(prev => !prev)}>
+        <StyledSoundButton onClick={() => setSoundActive(prev => !prev)}>
             {
                 soundActive
                     ?
-                    <i className="fas fa-volume-up"></i>
+                    <i className="fas fa-volume-up" />
                     :
-                    <i className="fas fa-volume-mute"></i>
-
+                    <i className="fas fa-volume-mute" />
             }
-
-        </button>
+        </StyledSoundButton>
     )
 }
 
