@@ -3,7 +3,7 @@ import useBoard from "../../hooks/useBoard";
 import useGameContext from "../../hooks/useGameContext";
 import Card from "../Card";
 import Timer from "../Timer";
-import { StyledBoard } from "./styles";
+import { StyledBoard, StyledMain } from "./styles";
 
 const Board: FC = () => {
     const { cards, flipped, onClickCard, wonPairs, onRestart, gameEnded, startTimer, isLoading } = useBoard();
@@ -12,7 +12,14 @@ const Board: FC = () => {
         return <div>CARGANDO</div>
     }
     return (
-        <>
+        <StyledMain>
+            <div className='container'>
+                <Timer startTimer={startTimer} gameEnded={gameEnded} />
+                <div className='btn-container'>
+                    <button onClick={onRestart}>reiniciar</button>
+                    <button onClick={() => setGame('')}>volver</button>
+                </div>
+            </div>
             {
                 gameEnded ?
                     <div style={{ textAlign: 'center' }}>
@@ -28,16 +35,10 @@ const Board: FC = () => {
                                 )
                             })
                         }
-                        <button onClick={onRestart}>reiniciar</button>
-                        <button onClick={() => setGame('')}>volver</button>
-
                     </StyledBoard>
             }
-            <Timer startTimer={startTimer} gameEnded={gameEnded} />
-
-        </>
+        </StyledMain>
     )
 }
 
 export default Board;
-
