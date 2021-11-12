@@ -31,25 +31,6 @@ export const StyledSelectionModal = styled.div`
        justify-content: space-between;
        padding: 1.5em;
 
-       button{
-           background-color: transparent;
-           border: none;
-           width: fit-content;
-           align-self: flex-end;
-        margin-bottom: 1em;
-           .fas{
-               color: #fff;
-               cursor: pointer;
-               align-self: flex-end;
-            }
-            &:hover{
-                .fas{
-                    color: var(--primary);
-                }
-            }
-       }
-
-
        img{
            align-self: flex-end;
            /* width: 80%; */
