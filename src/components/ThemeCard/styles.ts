@@ -7,7 +7,7 @@ export const StyledThemeCard = styled.div`
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    transition: filter 200ms ease, transform 200ms ease;
+    transition: transform 200ms ease;
 
     img, picture{
         width: 100%;
@@ -47,10 +47,7 @@ export const StyledThemeCard = styled.div`
     }
 
     &:hover{
-        img{
-            /* filter: blur(2px); */
-        }
-        transform: rotate(3deg);
+        transform: rotate(3deg) scale(1.05);
     }
 
     @media (max-width: 800px){
