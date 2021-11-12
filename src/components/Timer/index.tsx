@@ -1,4 +1,5 @@
 import { FC, useEffect, useRef, useState } from "react";
+import { StyledTimer } from "./styles";
 interface Props {
     startTimer: boolean
     gameEnded: boolean
@@ -26,7 +27,9 @@ const Timer: FC<Props> = ({ startTimer, gameEnded }) => {
     }, [startTimer, gameEnded]);
 
     return (
-        <div>Tiempo: {time} segundos</div>
+        <StyledTimer>
+            Tiempo: <span>{time}</span> segundos
+        </StyledTimer>
     )
 
 }
