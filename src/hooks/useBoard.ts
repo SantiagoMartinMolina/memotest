@@ -56,6 +56,11 @@ const useBoard = () => {
         if (!startTimer) {
             setStartTimer(true);
         }
+
+        if (wonPairs.includes(key.slice(0, -2))) {
+            return
+        }
+
         if (!flipped.includes(key) && flipped.length < 2) {
             setFlipped([...flipped, key]);
             const newLength = flipped.length + 1;
