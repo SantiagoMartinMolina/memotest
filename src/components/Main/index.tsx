@@ -5,12 +5,14 @@ import Card from "../Card";
 import Timer from "../Timer";
 import { StyledBoard, StyledMain } from "./styles";
 
-const Board: FC = () => {
+const Main: FC = () => {
     const { cards, flipped, onClickCard, wonPairs, onRestart, gameEnded, startTimer, isLoading } = useBoard();
     const { setGame } = useGameContext();
+
     if (isLoading) {
         return <div>CARGANDO</div>
     }
+
     return (
         <StyledMain>
             <div className='container'>
@@ -41,4 +43,4 @@ const Board: FC = () => {
     )
 }
 
-export default Board;
+export default Main;
