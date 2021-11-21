@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledTimer = styled.div`
     text-align: center;
-    font-size: 1em;
+    font-size: 1.3em;
     color: #fff;
     font-weight: 700;
     
