@@ -1,44 +1,32 @@
 import { FC } from "react";
 import useBoard from "../../hooks/useBoard";
 import useGameContext from "../../hooks/useGameContext";
-import Card from "../Card";
+import Board from "../Board";
 import Timer from "../Timer";
-import { StyledBoard, StyledMain } from "./styles";
+import WonScreen from "../WonScreen";
+import { StyledMain } from "./styles";
 
 const Main: FC = () => {
-    const { cards, flipped, onClickCard, wonPairs, onRestart, gameEnded, startTimer, isLoading } = useBoard();
+    const { cards, flipped, onClickCard, wonPairs, onRestart, gameEnded, isLoading, gameTime } = useBoard();
     const { setGame } = useGameContext();
 
     if (isLoading) {
         return <div>CARGANDO</div>
     }
 
+    if (gameEnded) {
+        return <WonScreen onRestart={onRestart} finalTime={gameTime} />
+    }
     return (
         <StyledMain>
             <div className='container'>
-                <Timer startTimer={startTimer} gameEnded={gameEnded} />
+                <Timer time={gameTime} />
                 <div className='btn-container'>
                     <button onClick={onRestart}>reiniciar</button>
                     <button onClick={() => setGame('')}>volver</button>
                 </div>
             </div>
-            {
-                gameEnded ?
-                    <div style={{ textAlign: 'center' }}>
-                        <p>Ganaste</p>
-                        <button onClick={onRestart}>jugar de nuevo</button>
-                    </div>
-                    :
-                    <StyledBoard>
-                        {
-                            cards.map(({ id, name, src }) => {
-                                return (
-                                    <Card key={id} name={name} src={src} id={id} onClick={onClickCard} flipped={wonPairs.includes(name) || flipped.includes(id!)} />
-                                )
-                            })
-                        }
-                    </StyledBoard>
-            }
+            <Board cards={cards} onClickCard={onClickCard} wonPairs={wonPairs} flipped={flipped} />
         </StyledMain>
     )
 }
