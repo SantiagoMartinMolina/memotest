@@ -1,5 +1,6 @@
 export interface Card {
     id: string,
     name: string,
-    src: string
+    src: string,
+    status?: string
 }
