@@ -29,9 +29,10 @@ const getRandomCards = (num: number, cards: Card[]) => {
 const createInitialCards = (data: Card[]) => {
     let initialCards: Card[] = [];
     let randomCards = getRandomCards(8, data);
-    randomCards?.forEach(({ name, src }) => {
-        initialCards.push({ name, src, id: `${name}-1` });
-        initialCards.push({ name, src, id: `${name}-2` });
+    randomCards?.forEach(({ name, src, status }) => {
+        let id = status ? `${name}-${status}` : name
+        initialCards.push({ name, src, id: `${id}-1` });
+        initialCards.push({ name, src, id: `${id}-2` });
     });
     return shuffleArray(initialCards);
 }
@@ -47,14 +48,23 @@ const useBoard = () => {
     const timeoutRef = useRef<NodeJS.Timeout>();
     const gameEnded = wonPairs.length === cards.length / 2;
     const isLoading = cards.length === 0;
+    const [gameTime, setGameTime] = useState(0);
+    const intervalRef = useRef<NodeJS.Timeout>();
 
     useEffect(() => {
         data && setCards(createInitialCards(data));
     }, [data])
 
+    if (gameEnded) {
+        clearInterval(intervalRef.current as NodeJS.Timeout);
+    }
+
     const onClickCard = (key: string) => {
         if (!startTimer) {
             setStartTimer(true);
+            intervalRef.current = setInterval(() => {
+                setGameTime(prev => prev + 1);
+            }, 1000)
         }
 
         if (wonPairs.includes(key.slice(0, -2))) {
@@ -88,9 +98,11 @@ const useBoard = () => {
         setWonPairs([]);
         setFlipped([]);
         setStartTimer(false);
+        setGameTime(0);
+        clearInterval(intervalRef.current as NodeJS.Timeout);
     };
 
-    return { cards, flipped, onClickCard, onRestart, wonPairs, gameEnded, startTimer, isLoading };
+    return { cards, flipped, onClickCard, onRestart, wonPairs, gameEnded, isLoading, gameTime };
 }
 
 export default useBoard;
