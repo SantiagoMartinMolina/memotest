@@ -6,7 +6,7 @@ const SoundButton = () => {
     const { soundActive, setSoundActive } = useSoundContext();
 
     return (
-        <StyledSoundButton onClick={() => setSoundActive(prev => !prev)}>
+        <StyledSoundButton onClick={() => setSoundActive(prev => !prev)} aria-label={soundActive ? 'turn sound off' : 'turn sound on'}>
             {
                 soundActive
                     ?
