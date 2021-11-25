@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { Card as ICard } from '../../types';
+import type { FC } from 'react';
+import type { Card as ICard } from '../../types';
 import pokeball from '../../assets/images/Pokeball.png';
 import rickAndMorty from '../../assets/images/RickAndMorty.png';
 import { StyledCard } from './styles';

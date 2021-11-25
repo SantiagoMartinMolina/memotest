@@ -55,7 +55,7 @@ export const StyledThemeCard = styled.div`
             max-height: 300px;
         }
     }
-    @media (max-width: 500px){
+    @media (max-width: 720px){
         img, picture{
             max-height: 170px;
             object-position: top;

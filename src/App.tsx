@@ -12,8 +12,6 @@ function App() {
   const { game } = useGameContext();
   useRequests();
 
-  console.log('render');
-
   return (
     <div className="App">
       <SoundButton />

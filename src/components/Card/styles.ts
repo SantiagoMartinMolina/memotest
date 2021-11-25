@@ -5,6 +5,11 @@ export const StyledCard = styled.div`
     height: 100px;
     transition: transform 200ms ease;
 
+    @media (max-width: 720px){
+        width: 80px;
+        height: 80px;
+    }
+
     @media (max-width: 500px){
         width: 60px;
         height: 60px;

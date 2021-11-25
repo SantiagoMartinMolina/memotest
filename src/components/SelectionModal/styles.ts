@@ -143,13 +143,13 @@ export const StyledSelectionModal = styled.div`
 
     }
 
-	@media (max-width: 500px) {
+	@media (max-width: 720px) {
         .card-container{
             grid-template-columns: 1fr;
         }
     }
 
-	@media (max-width: 400px) {
+	@media (max-width: 720px) {
         footer{
             p{
                 font-size: 0.8em;

@@ -63,7 +63,7 @@ export const StyledMain = styled.main`
         }
         
     }
-    @media (max-width: 500px){
+    @media (max-width: 720px){
         margin-top: 2em;
     }
 `
