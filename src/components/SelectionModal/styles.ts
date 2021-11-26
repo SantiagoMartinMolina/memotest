@@ -24,7 +24,7 @@ export const StyledSelectionModal = styled.div`
 
    .img-container{
        width: 50%;
-       background-color: #ffc5bc;
+       background-color: #b22222;
        clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
        display: flex;
        flex-direction: column;
@@ -112,7 +112,7 @@ export const StyledSelectionModal = styled.div`
                 max-height: 50px;
                 position: absolute;
                 top: 1.5em;
-                right: 3.5em;
+                /* right: 3.5em; */
 
                 &:hover{
                     filter: none;
@@ -144,6 +144,7 @@ export const StyledSelectionModal = styled.div`
     }
 
 	@media (max-width: 720px) {
+        margin-top: 3em;
         .card-container{
             grid-template-columns: 1fr;
         }

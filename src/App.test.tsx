@@ -26,6 +26,10 @@ test('should render App', () => {
     );
     const soundButtonOff = getByRole('button', { name: 'turn sound off' });
     const soundButtonOn = queryByRole('button', { name: 'turn sound on' });
+    expect(soundButtonOff).toBeVisible();
+    expect(soundButtonOn).not.toBeInTheDocument();
+
+
 
     //clickear boton de sonido y testear que este el otro
 
@@ -33,8 +37,6 @@ test('should render App', () => {
     // que esten las imagenes, verificar que esten los iconos en footer (poner aria laberl (visitar mi...) en cada link y agarrarlos por aria laber)
 
 
-    expect(soundButtonOff).toBeVisible();
-    expect(soundButtonOn).not.toBeInTheDocument();
     expect(images).toHaveLength(3);
 
 
