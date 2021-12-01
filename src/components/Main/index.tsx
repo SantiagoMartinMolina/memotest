@@ -1,7 +1,8 @@
-import { FC } from "react";
+import type { FC } from "react";
 import useBoard from "../../hooks/useBoard";
 import useGameContext from "../../hooks/useGameContext";
 import Board from "../Board";
+import Loader from "../Loader";
 import Timer from "../Timer";
 import WonScreen from "../WonScreen";
 import { StyledMain } from "./styles";
@@ -11,7 +12,9 @@ const Main: FC = () => {
     const { setGame } = useGameContext();
 
     if (isLoading) {
-        return <div>CARGANDO</div>
+        return (
+            <Loader />
+        )
     }
 
     if (gameEnded) {
