@@ -1,13 +1,13 @@
 import Charmander from '../../assets/images/charmander.png';
 import Charmeleon from '../../assets/images/charmeleon.png';
 import Charizard from '../../assets/images/charizard.png';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import useSound from 'use-sound';
 import buttonSound from '../../assets/sounds/buttonSound.mp3';
 import useSoundContext from '../../hooks/useSoundContext';
 
 
-const PokemonEvolutionImg = () => {
+const PokemonEvolutionImg: FC = () => {
     const [src, setSrc] = useState(Charmander);
     const { soundActive } = useSoundContext();
     const [play] = useSound(buttonSound, { soundEnabled: soundActive });
