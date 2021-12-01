@@ -30,7 +30,7 @@ const useRequests = () => {
 
     const rickAndMortyQuery = useQuery<Card[] | undefined>('rickAndMorty', async () => {
         let resultPromise = await Promise.all(endpointsRM());
-        let result: Array<{ id: number, name: string, image: string }> = [];
+        let result: Array<{ id: number, name: string, image: string, species: string }> = [];
         resultPromise.forEach((res) => {
             result.push(...res.data.results);
         });
@@ -38,7 +38,8 @@ const useRequests = () => {
         return result.map(res => ({
             id: `${res.id}`,
             name: res.name,
-            src: res.image
+            src: res.image,
+            species: res.species
         }));
     });
 
