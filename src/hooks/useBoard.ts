@@ -4,6 +4,7 @@ import useGameContext from './useGameContext';
 import { useQueryClient } from 'react-query';
 import useSound from 'use-sound';
 import flipSound from '../assets/sounds/flipSound.mp3';
+import useSoundContext from './useSoundContext';
 
 
 const shuffleArray = (array: Card[]) => {
@@ -53,7 +54,8 @@ const useBoard = () => {
     const isLoading = cards.length === 0;
     const [gameTime, setGameTime] = useState(0);
     const intervalRef = useRef<NodeJS.Timeout>();
-    const [play] = useSound(flipSound, { volume: 0.20 });
+    const { soundActive } = useSoundContext();
+    const [play] = useSound(flipSound, { volume: 0.20, soundEnabled: soundActive });
 
     useEffect(() => {
         data && setCards(createInitialCards(data));
