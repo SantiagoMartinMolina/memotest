@@ -14,7 +14,7 @@ export const StyledSoundButton = styled.button`
     }
     &:hover{
         .fas{
-            color: var(--primary);
+            color: var(--bg-color-100);
         }
     }
 `

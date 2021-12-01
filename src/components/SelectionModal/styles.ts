@@ -67,7 +67,7 @@ export const StyledSelectionModal = styled.div`
                 }  
                 
                 &:hover{
-                    color: var(--primary);
+                    color: var(--bg-color-100);
                 }
             }
             
@@ -95,6 +95,8 @@ export const StyledSelectionModal = styled.div`
 
         p{
            font-size: 1em;
+           color: #fff;
+           font-weight: 600;
        }
     }
 
