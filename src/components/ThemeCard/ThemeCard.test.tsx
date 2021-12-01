@@ -1,4 +1,3 @@
-import userEvent from '@testing-library/user-event';
 import { render } from '../../test/utils';
 import ThemeCard from '../ThemeCard/index';
 test('should render a ThemeCard component', () => {
