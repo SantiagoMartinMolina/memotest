@@ -2,6 +2,9 @@ import { useState, useRef, useEffect } from 'react';
 import { Card } from '../types';
 import useGameContext from './useGameContext';
 import { useQueryClient } from 'react-query';
+import useSound from 'use-sound';
+import flipSound from '../assets/sounds/flipSound.mp3';
+
 
 const shuffleArray = (array: Card[]) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -29,8 +32,8 @@ const getRandomCards = (num: number, cards: Card[]) => {
 const createInitialCards = (data: Card[]) => {
     let initialCards: Card[] = [];
     let randomCards = getRandomCards(8, data);
-    randomCards?.forEach(({ name, src, status }) => {
-        let id = status ? `${name}-${status}` : name
+    randomCards?.forEach(({ name, src, species }) => {
+        let id = species ? `${name}-${species}` : name
         initialCards.push({ name, src, id: `${id}-1` });
         initialCards.push({ name, src, id: `${id}-2` });
     });
@@ -50,6 +53,7 @@ const useBoard = () => {
     const isLoading = cards.length === 0;
     const [gameTime, setGameTime] = useState(0);
     const intervalRef = useRef<NodeJS.Timeout>();
+    const [play] = useSound(flipSound, { volume: 0.20 });
 
     useEffect(() => {
         data && setCards(createInitialCards(data));
@@ -60,6 +64,8 @@ const useBoard = () => {
     }
 
     const onClickCard = (key: string) => {
+
+
         if (!startTimer) {
             setStartTimer(true);
             intervalRef.current = setInterval(() => {
@@ -74,6 +80,7 @@ const useBoard = () => {
         if (!flipped.includes(key) && flipped.length < 2) {
             setFlipped([...flipped, key]);
             const newLength = flipped.length + 1;
+            play();
 
             if (newLength === 2) {
                 const firstName = flipped[0].slice(0, -2);
@@ -90,6 +97,7 @@ const useBoard = () => {
         } else if (!flipped.includes(key) && flipped.length === 2) {
             clearTimeout(timeoutRef.current as NodeJS.Timeout);
             setFlipped([key]);
+            play();
         }
     };
 
