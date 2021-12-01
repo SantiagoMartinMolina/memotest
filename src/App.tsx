@@ -4,6 +4,7 @@ import SelectionModal from './components/SelectionModal';
 import useGameContext from './hooks/useGameContext';
 import useRequests from './hooks/useRequests';
 import SoundButton from './components/SoundButton';
+import Loader from './components/Loader';
 
 const Main = lazy(() => import(/* webpackPrefetch: true */ './components/Main'));
 
@@ -20,7 +21,7 @@ function App() {
           ?
           <SelectionModal />
           :
-          <Suspense fallback={<div>cargando.......</div>}>
+          <Suspense fallback={<Loader />}>
             <Main />
           </Suspense>
       }
