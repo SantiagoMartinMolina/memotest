@@ -7,8 +7,8 @@ import onSound from '../../assets/sounds/onSound.mp3';
 
 const SoundButton = () => {
     const { soundActive, setSoundActive } = useSoundContext();
-    const [playOff] = useSound(offSound, { volume: 0.10 });
-    const [playOn] = useSound(onSound, { volume: 0.15 });
+    const [playOff] = useSound(offSound, { volume: 0.1 });
+    const [playOn] = useSound(onSound, { volume: 0.1 });
 
     const handleClick = () => {
         setSoundActive(prev => !prev);
