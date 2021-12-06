@@ -9,7 +9,7 @@ const SelectionModal: FC = () => {
         <StyledSelectionModal>
             <div className='content'>
                 <h1>Memotest</h1>
-                <p>Select a topic:</p>
+                <p>Select a theme:</p>
                 <div className='card-container'>
                     <ThemeCard game='pokemon' />
                     <ThemeCard game='rickAndMorty' />
