@@ -25,8 +25,8 @@ const Main: FC = () => {
             <div className='container'>
                 <Timer time={gameTime} />
                 <div className='btn-container'>
-                    <button onClick={onRestart}>reiniciar</button>
-                    <button onClick={() => setGame('')}>volver</button>
+                    <button onClick={onRestart}>Restart</button>
+                    <button onClick={() => setGame('')}>Back</button>
                 </div>
             </div>
             <Board cards={cards} onClickCard={onClickCard} wonPairs={wonPairs} flipped={flipped} />

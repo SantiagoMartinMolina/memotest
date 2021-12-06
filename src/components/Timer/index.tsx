@@ -7,7 +7,7 @@ const Timer: FC<Props> = ({ time }) => {
 
     return (
         <StyledTimer>
-            Tiempo: <span>{time}</span> segundos
+            Time: <span>{time}</span> {time === 1 ? 'second' : 'seconds'}
         </StyledTimer>
     )
 

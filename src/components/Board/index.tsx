@@ -1,7 +1,6 @@
 import { StyledBoard } from './styles'
 import Card from "../Card";
 import type { FC } from 'react';
-import { memo } from 'react';
 import type { Card as ICard } from '../../types';
 
 interface Props {
@@ -26,4 +25,4 @@ const Board: FC<Props> = ({ cards, onClickCard, wonPairs, flipped }) => {
     )
 }
 
-export default memo(Board);
+export default Board;

@@ -10,10 +10,10 @@ interface Props {
 const WonScreen: FC<Props> = ({ onRestart, finalTime }) => {
     return (
         <StyledWonScreen >
-            <h2>Ganaste!</h2>
+            <h2>You win!</h2>
             {/* <p>Tiempo: <span>{finalTime}</span> segundos</p> */}
             <Timer time={finalTime} />
-            <button onClick={onRestart}>jugar de nuevo</button>
+            <button onClick={onRestart}>Play again</button>
         </StyledWonScreen>
     )
 }
