@@ -15,9 +15,10 @@ const Board: FC<Props> = ({ cards, onClickCard, wonPairs, flipped }) => {
     return (
         <StyledBoard>
             {
-                cards.map(({ id, name, src }) => {
+                cards.map(({ id, name, src, species }) => {
+                    const flippedCondition = species ? wonPairs.includes(name + '-' + species) : wonPairs.includes(name);
                     return (
-                        <Card key={id} name={name} src={src} id={id} onClick={onClickCard} flipped={wonPairs.includes(name) || flipped.includes(id!)} />
+                        <Card key={id} name={name} src={src} id={id} onClick={onClickCard} flipped={flippedCondition || flipped.includes(id!)} />
                     )
                 })
             }

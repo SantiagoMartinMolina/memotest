@@ -35,8 +35,8 @@ const createInitialCards = (data: Card[]) => {
     let randomCards = getRandomCards(8, data);
     randomCards?.forEach(({ name, src, species }) => {
         let id = species ? `${name}-${species}` : name
-        initialCards.push({ name, src, id: `${id}-1` });
-        initialCards.push({ name, src, id: `${id}-2` });
+        initialCards.push({ name, src, id: `${id}-1`, species });
+        initialCards.push({ name, src, id: `${id}-2`, species });
     });
     return shuffleArray(initialCards);
 }
@@ -66,7 +66,6 @@ const useBoard = () => {
     }
 
     const onClickCard = (key: string) => {
-
 
         if (!startTimer) {
             setStartTimer(true);
