@@ -31,10 +31,10 @@ Una vez clonado, abrir el directorio raiz y ejecutar `npm install` y una vez que
 
 ## 🛒 ¿Cuál era el objetivo de este proyecto?
 
-El objetivo era afianzar mis conocimientos en Typescript + React. Tambien para poder probar algunas librerias que me parecian interesantes y para experimentar con sonidos.
+El objetivo era afianzar mis conocimientos en Typescript + React. Tambien para poder probar algunas librerias que me parecian interesantes como react-query, para manejar las requests y almacenar en caché, y use-sound para experimentar con sonidos.
 
 <br />
 
 ## 🧱 ¿Qué tecnologías se usaron?
 
-Para el front: Typescript, React, styled-components y react-testing-library con jest para realizar algunos tests. Tambien se usó create react app como plantilla.
+Para el front: Typescript, React, styled-components y react-testing-library con jest para realizar algunos tests. Tambien se usó create-react-app como plantilla.
