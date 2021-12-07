@@ -67,6 +67,10 @@ const useBoard = () => {
 
     const onClickCard = (key: string) => {
 
+        if (wonPairs.length === 7 && flipped.length === 1) {
+            clearInterval(intervalRef.current as NodeJS.Timeout);
+        }
+
         if (!startTimer) {
             setStartTimer(true);
             intervalRef.current = setInterval(() => {
@@ -88,8 +92,17 @@ const useBoard = () => {
                 const secondName = key.slice(0, -2);
 
                 if (firstName === secondName) {
-                    setWonPairs([...wonPairs, firstName]);
-                    setFlipped([]);
+
+                    if (wonPairs.length === 7) {
+                        setTimeout(() => {
+                            setWonPairs([...wonPairs, firstName]);
+                            setFlipped([]);
+                        }, 600)
+                    } else {
+                        setWonPairs([...wonPairs, firstName]);
+                        setFlipped([]);
+                    }
+
                 } else {
                     timeoutRef.current = setTimeout(() => { setFlipped([]) }, 1000);
                 }
