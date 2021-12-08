@@ -4,6 +4,7 @@ import useGameContext from './useGameContext';
 import { useQueryClient } from 'react-query';
 import useSound from 'use-sound';
 import flipSound from '../assets/sounds/flipSound.mp3';
+import successSound from '../assets/sounds/success.mp3';
 import useSoundContext from './useSoundContext';
 
 
@@ -55,7 +56,8 @@ const useBoard = () => {
     const [gameTime, setGameTime] = useState(0);
     const intervalRef = useRef<NodeJS.Timeout>();
     const { soundActive } = useSoundContext();
-    const [play] = useSound(flipSound, { volume: 0.20, soundEnabled: soundActive });
+    const [playFlipSound] = useSound(flipSound, { volume: 0.20, soundEnabled: soundActive });
+    const [playSuccessSound] = useSound(successSound, { volume: 0.20, soundEnabled: soundActive });
 
     useEffect(() => {
         data && setCards(createInitialCards(data));
@@ -85,13 +87,14 @@ const useBoard = () => {
         if (!flipped.includes(key) && flipped.length < 2) {
             setFlipped([...flipped, key]);
             const newLength = flipped.length + 1;
-            play();
+            playFlipSound();
 
             if (newLength === 2) {
                 const firstName = flipped[0].slice(0, -2);
                 const secondName = key.slice(0, -2);
 
                 if (firstName === secondName) {
+                    playSuccessSound();
 
                     if (wonPairs.length === 7) {
                         setTimeout(() => {
@@ -111,7 +114,7 @@ const useBoard = () => {
         } else if (!flipped.includes(key) && flipped.length === 2) {
             clearTimeout(timeoutRef.current as NodeJS.Timeout);
             setFlipped([key]);
-            play();
+            playFlipSound();
         }
     };
 
