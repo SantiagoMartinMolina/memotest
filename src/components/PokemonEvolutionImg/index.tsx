@@ -10,8 +10,8 @@ import useSoundContext from '../../hooks/useSoundContext';
 const PokemonEvolutionImg: FC = () => {
     const [src, setSrc] = useState(Charmander);
     const { soundActive } = useSoundContext();
-    const [play1] = useSound(evolution1, { soundEnabled: soundActive, volume: 0.05 });
-    const [play2] = useSound(evolution2, { soundEnabled: soundActive, volume: 0.05 });
+    const [play1] = useSound(evolution1, { soundEnabled: soundActive, volume: 0.007 });
+    const [play2] = useSound(evolution2, { soundEnabled: soundActive, volume: 0.007 });
 
     const handleClick = (e: React.MouseEvent<HTMLImageElement>) => {
         const leftClick = e.button === 0;

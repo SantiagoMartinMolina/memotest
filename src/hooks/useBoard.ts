@@ -56,8 +56,8 @@ const useBoard = () => {
     const [gameTime, setGameTime] = useState(0);
     const intervalRef = useRef<NodeJS.Timeout>();
     const { soundActive } = useSoundContext();
-    const [playFlipSound] = useSound(flipSound, { volume: 0.20, soundEnabled: soundActive });
-    const [playSuccessSound] = useSound(successSound, { volume: 0.20, soundEnabled: soundActive });
+    const [playFlipSound] = useSound(flipSound, { volume: 0.15, soundEnabled: soundActive });
+    const [playSuccessSound] = useSound(successSound, { volume: 0.10, soundEnabled: soundActive });
 
     useEffect(() => {
         data && setCards(createInitialCards(data));
